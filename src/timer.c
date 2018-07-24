@@ -17,10 +17,11 @@
 void TIMER2_Init(void) {
     // Ensure timer is off.
     T2CON &= 0xFB; // TMR2ON='0'.
-     // Prescaler=1, postscaler=1.
-    T2CON &= 0x84; // T2OUTPS='0000' and T2CKPS='0'.
-    // Set compare value to reach 10ms overflow period.
-    PR2 = 78; // 78 fronts @ (31kHz/4) (LFINTOSC) = 100Hz.
+     // Prescaler=16, postscaler=16.
+    T2CON &= 0x84; // Reset bits 0-1 and 3-6.
+    T2CON |= 0x02; // T2OUTPS='0000' and T2CKPS='10'.
+    // Set compare value to reach 1s overflow period.
+    PR2 = 48; // 48 fronts @ (31kHz/(4*1*16)) (LFINTOSC) = 10Hz.
 }
 
 /* START TIMER2 TO COUNT MILLISECONDS.

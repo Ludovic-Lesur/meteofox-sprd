@@ -16,13 +16,13 @@
 
 /*** Global macros ***/
 
-// Alarm tonality toggle period expressed in tens of milliseconds.
-#define TONALITY_TOGGLE_PERIOD  50
+// Alarm tonality toggle period expressed in tenth of seconds.
+#define TONALITY_TOGGLE_PERIOD  5
 // Tonalities frequency in Hz.
-#define TONALITY1_FREQ_HZ       1000
+#define TONALITY1_FREQ_HZ       1700
 #define TONALITY2_FREQ_HZ       2000
-// Alarm time-out expressed in tens of milliseconds.
-#define ALARM_TIMEOUT           6000
+// Alarm time-out expressed in tenth of seconds.
+#define ALARM_TIMEOUT           600
 
 /*** Main state machine ***/
 
@@ -34,7 +34,7 @@ typedef enum SPRD_State {
 
 /*** Global variables ***/
 
-volatile unsigned int tens_milliseconds = 0;
+volatile unsigned int tenth_seconds = 0;
 
 /* MAIN FUNCTION.
  * @param:  None.
@@ -68,42 +68,42 @@ int main(void) {
                 // Update state.
                 sprd_state = SPRD_STATE_TONALITY_1;
                 PWM1_SetFrequency(TONALITY1_FREQ_HZ);
-                PWM1_Start();
                 // Reset timers.
-                alarm_start_time = tens_milliseconds;
-                tonality_toggle_time = tens_milliseconds;
+                alarm_start_time = tenth_seconds;
+                tonality_toggle_time = tenth_seconds;
+                PWM1_Start();
                 TIMER2_Start();
             }
             break;
         case SPRD_STATE_TONALITY_1:
             // Update state.
-            if ((tens_milliseconds > (alarm_start_time + ALARM_TIMEOUT)) || (GPIO_ButtonPressed())) {
+            if ((tenth_seconds > (alarm_start_time + ALARM_TIMEOUT)) || (GPIO_ButtonPressed())) {
                 // Come-back to sleep mode.
                 sprd_state = SPRD_STATE_SLEEP;
             }
             else {
-                if (tens_milliseconds > (tonality_toggle_time + TONALITY_TOGGLE_PERIOD)) {
+                if (tenth_seconds > (tonality_toggle_time + TONALITY_TOGGLE_PERIOD)) {
                     // Switch to tonality 2.
                     sprd_state = SPRD_STATE_TONALITY_2;
                     PWM1_SetFrequency(TONALITY2_FREQ_HZ);
                     // Reset timer.
-                    tonality_toggle_time = tens_milliseconds;
+                    tonality_toggle_time = tenth_seconds;
                 }
             }
             break;
         case SPRD_STATE_TONALITY_2:
             // Update state.
-            if ((tens_milliseconds > (alarm_start_time + ALARM_TIMEOUT)) || (GPIO_ButtonPressed())) {
+            if ((tenth_seconds > (alarm_start_time + ALARM_TIMEOUT)) || (GPIO_ButtonPressed())) {
                 // Come-back to sleep mode.
                 sprd_state = SPRD_STATE_SLEEP;
             }
             else {
-                if (tens_milliseconds > (tonality_toggle_time + TONALITY_TOGGLE_PERIOD)) {
+                if (tenth_seconds > (tonality_toggle_time + TONALITY_TOGGLE_PERIOD)) {
                     // Switch to tonality 1.
                     sprd_state = SPRD_STATE_TONALITY_1;
                     PWM1_SetFrequency(TONALITY1_FREQ_HZ);
                     // Reset timer.
-                    tonality_toggle_time = tens_milliseconds;
+                    tonality_toggle_time = tenth_seconds;
                 }
             }
             break;
@@ -122,8 +122,8 @@ void interrupt ISR(void) {
     if ((PIR1 & 0x02) != 0) { // TMR2IF='1'.
         // Clear flag.
         PIR1 &= 0xFD; // TMR2IF='0'.
-        // Increment counter of 10*milliseconds.
-        tens_milliseconds++;
+        // Increment counter of 10*millitenth_seconds.
+        tenth_seconds++;
         // Toggle RA5.
         //PORTA ^= 0x20;
     }

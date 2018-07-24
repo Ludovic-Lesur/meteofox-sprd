@@ -22,6 +22,7 @@ void GPIO_Init(void) {
     ANSELA = 0x00; // None analog pin.
     WPUA = 0x00; // None pull-up resistor.
     ODCONA = 0x00; // All pins using push-pull stage.
+    SLRCONA &= 0xD0; // RA5 slew rate at maximum.
     // Enable rising edge external interrupt on RA4 (for wake-up).
     IOCAP &= 0xC0; // Reset bits 0-5.
     IOCAP |= 0x10; // IOCAP4='1'.
