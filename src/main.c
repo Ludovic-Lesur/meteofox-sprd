@@ -22,7 +22,7 @@
 #define TONALITY1_FREQ_HZ       1700
 #define TONALITY2_FREQ_HZ       2000
 // Alarm time-out expressed in tenth of seconds.
-#define ALARM_TIMEOUT           600
+#define ALARM_TIMEOUT           200
 
 /*** Main state machine ***/
 
