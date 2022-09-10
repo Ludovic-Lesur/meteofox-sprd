@@ -1,16 +1,16 @@
 /* 
  * File:   clock.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 18 juin 2018, 13:00
+ * Created on 18 jun 2018, 13:00
  */
 
-#ifndef CLOCK_H
-#define	CLOCK_H
+#ifndef __CLOCK_H__
+#define __CLOCK_H__
 
-/*** Clock functions ***/
+/*** CLOCK functions ***/
 
-void Clock_Init(void);
+void CLOCK_init(void);
 
-#endif	/* CLOCK_H */
+#endif	/* __CLOCK_H__ */
 

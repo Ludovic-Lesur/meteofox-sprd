@@ -1,18 +1,18 @@
 /* 
  * File:   timer.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 17 juillet 2018, 20:43
+ * Created on 17 jul 2018, 20:43
  */
 
-#ifndef TIMER_H
-#define	TIMER_H
+#ifndef __TIMER_H__
+#define __TIMER_H__
 
-/*** Timer funcions ***/
+/*** TIMER funcions ***/
 
-void TIMER2_Init(void);
-void TIMER2_Start(void);
-void TIMER2_Stop(void);
+void TIMER2_init(void);
+void TIMER2_start(void);
+void TIMER2_stop(void);
 
-#endif	/* TIMER_H */
+#endif	/* __TIMER_H__ */
 

@@ -1,16 +1,16 @@
 /* 
  * File:   interrupt.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 18 juillet 2018, 02:44
+ * Created on 18 jul 2018, 02:44
  */
 
-#ifndef INTERRUPT_H
-#define	INTERRUPT_H
+#ifndef __INTERRUPT_H__
+#define __INTERRUPT_H__
 
-/*** Interrupt functions ***/
+/*** INTERRUPT functions ***/
 
-void Interrupt_Init(void);
+void INTERRUPT_init(void);
 
-#endif	/* INTERRUPT_H */
+#endif	/* __INTERRUPT_H__ */
 

@@ -1,8 +1,8 @@
 /* 
  * File:   gpio.c
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 18 juin 2018, 13:09
+ * Created on 18 jun 2018, 13:09
  */
 
 #include "gpio.h"
@@ -14,7 +14,7 @@
  * @parzm:  None.
  * @return: None.
  */
-void GPIO_Init(void) {
+void GPIO_init(void) {
     // PWM1 peripheral mapped on RA5.
     APFCON = 0x01; // P1SEL='1'.
     // Configure RA5 as output, RA2 and RA4 as input.
@@ -34,7 +34,7 @@ void GPIO_Init(void) {
  * @param:                  None.
  * @return sensor_state:    1 if rain detected, 0 otherwise.
  */
-unsigned char GPIO_RainDetected(void) {
+unsigned char GPIO_rain_detected(void) {
     unsigned char sensor_state = 0;
     if ((PORTA & 0x10) != 0) { // Check PORTA4 bit.
         sensor_state = 1;
@@ -46,7 +46,7 @@ unsigned char GPIO_RainDetected(void) {
  * @param:                  None.
  * @return button_state:    1 if button is pressed, 0 otherwise.
  */
-unsigned char GPIO_ButtonPressed(void) {
+unsigned char GPIO_button_pressed(void) {
     unsigned char button_state = 0;
     if ((PORTA & 0x04) != 0) { // Check PORTA2 bit.
         button_state = 1;

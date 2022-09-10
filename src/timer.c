@@ -1,20 +1,20 @@
 /* 
  * File:   timer.c
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 17 juillet 2018, 21:08
+ * Created on 17 jul 2018, 21:08
  */
 
 #include <pic12lf1571.h>
 #include "timer.h"
 
-/*** Timer funcions ***/
+/*** TIMER funcions ***/
 
 /* CONFIGURE TIMER2 MODULE
  * param:   None.
  * @return: None.
  */
-void TIMER2_Init(void) {
+void TIMER2_init(void) {
     // Ensure timer is off.
     T2CON &= 0xFB; // TMR2ON='0'.
      // Prescaler=16, postscaler=16.
@@ -28,7 +28,7 @@ void TIMER2_Init(void) {
  * @param:  None.
  * @return: None.
  */
-void TIMER2_Start(void) {
+void TIMER2_start(void) {
     // Enable interrupt.
     PIE1 |= 0x02; // TMR2IE='1'.
     // Start timer.
@@ -39,7 +39,7 @@ void TIMER2_Start(void) {
  * @param:  None.
  * @return: None.
  */
-void TIMER2_Stop(void) {
+void TIMER2_stop(void) {
     // Stop timer.
     T2CON &= 0xFB; // TMR2ON='0'.
     // Disable interrupt.

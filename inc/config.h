@@ -1,12 +1,12 @@
 /* 
  * File:   config.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 18 juin 2018, 12:26
+ * Created on 18 jun 2018, 12:26
  */
 
-#ifndef CONFIG_H
-#define	CONFIG_H
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
 
 #include <pic12lf1571.h>
 
@@ -24,5 +24,5 @@
 #pragma config LPBOREN = OFF // Low-power brown-out reset disabled.
 #pragma config LVP = OFF // Low voltage programming disabled.
 
-#endif	/* CONFIG_H */
+#endif	/* __CONFIG_H__ */
 

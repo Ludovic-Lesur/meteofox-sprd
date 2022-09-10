@@ -1,18 +1,18 @@
 /* 
  * File:   gpio.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 18 juin 2018, 13:08
+ * Created on 18 jun 2018, 13:08
  */
 
-#ifndef GPIO_H
-#define	GPIO_H
+#ifndef __GPIO_H__
+#define __GPIO_H__
 
 /*** GPIO functions ***/
 
-void GPIO_Init(void);
-unsigned char GPIO_RainDetected(void);
-unsigned char GPIO_ButtonPressed(void);
+void GPIO_init(void);
+unsigned char GPIO_rain_detected(void);
+unsigned char GPIO_button_pressed(void);
 
-#endif	/* GPIO_H */
+#endif	/* __GPIO_H__ */
 

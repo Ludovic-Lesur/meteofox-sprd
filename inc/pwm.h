@@ -1,19 +1,19 @@
 /* 
  * File:   pwm.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 19 juillet 2018, 20:06
+ * Created on 19 jul 2018, 20:06
  */
 
-#ifndef PWM_H
-#define	PWM_H
+#ifndef __PWM_H__
+#define __PWM_H__
 
 /*** PWM functions ***/
 
-void PWM1_Init(void);
-void PWM1_Start(void);
-void PWM1_Stop(void);
-void PWM1_SetFrequency(unsigned int frequency);
+void PWM1_init(void);
+void PWM1_start(void);
+void PWM1_stop(void);
+void PWM1_set_frequency(unsigned int frequency);
 
-#endif	/* PWM_H */
+#endif	/* __PWM_H__ */
 

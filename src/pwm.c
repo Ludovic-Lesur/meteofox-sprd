@@ -1,8 +1,8 @@
 /* 
  * File:   pwm.h
- * Author: Ludovic
+ * Author: Ludo
  *
- * Created on 19 juillet 2018, 20:07
+ * Created on 19 jul 2018, 20:07
  */
 
 #include <pic12lf1571.h>
@@ -14,7 +14,7 @@
  * @param:  None.
  * @return: None.
  */
-void PWM1_Init(void) {
+void PWM1_init(void) {
     // Ensure module is off.
     PWM1CON &= 0x03;
     // No interrupt.
@@ -39,7 +39,7 @@ void PWM1_Init(void) {
  * @param:  None.
  * @return: None.
  */
-void PWM1_Start(void) {
+void PWM1_start(void) {
     // Enable peripheral.
     PWM1CON |= 0x80; // EN='1'.
 }
@@ -48,7 +48,7 @@ void PWM1_Start(void) {
  * @param:  None.
  * @return: None.
  */
-void PWM1_Stop(void) {
+void PWM1_stop(void) {
      // Enable peripheral.
     PWM1CON &= 0x7F; // EN='0'.
 }
@@ -57,7 +57,7 @@ void PWM1_Stop(void) {
  * @param frequency:    PWM frequency in Hz.
  * @return:             None.
  */
-void PWM1_SetFrequency(unsigned int frequency) {
+void PWM1_set_frequency(unsigned int frequency) {
     // Set PWM frequency.
     unsigned short pr_value = (31000/frequency)-1;
     PWM1PRL = (pr_value & 0x00FF); // See equation 22-1.
