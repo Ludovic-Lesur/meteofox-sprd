@@ -2,7 +2,7 @@
  * File:   config.h
  * Author: Ludo
  *
- * Created on 18 jun 2018, 12:26
+ * Created on 18 jun. 2018, 12:26
  */
 
 #ifndef __CONFIG_H__

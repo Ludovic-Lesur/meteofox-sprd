@@ -2,18 +2,16 @@
  * File:   timer.c
  * Author: Ludo
  *
- * Created on 17 jul 2018, 21:08
+ * Created on 17 jul. 2018, 21:08
  */
 
-#include <pic12lf1571.h>
 #include "timer.h"
 
-/*** TIMER funcions ***/
+#include <pic12lf1571.h>
 
-/* CONFIGURE TIMER2 MODULE
- * param:   None.
- * @return: None.
- */
+/*** TIMER functions ***/
+
+/*******************************************************************/
 void TIMER2_init(void) {
     // Ensure timer is off.
     T2CON &= 0xFB; // TMR2ON='0'.
@@ -24,10 +22,7 @@ void TIMER2_init(void) {
     PR2 = 48; // 48 fronts @ (31kHz/(4*1*16)) (LFINTOSC) = 10Hz.
 }
 
-/* START TIMER2 TO COUNT MILLISECONDS.
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 void TIMER2_start(void) {
     // Enable interrupt.
     PIE1 |= 0x02; // TMR2IE='1'.
@@ -35,10 +30,7 @@ void TIMER2_start(void) {
     T2CON |= 0x04; // TMR2ON='1'.
 }
 
-/* STOP TIMER2.
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 void TIMER2_stop(void) {
     // Stop timer.
     T2CON &= 0xFB; // TMR2ON='0'.

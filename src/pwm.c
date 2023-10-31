@@ -2,18 +2,16 @@
  * File:   pwm.h
  * Author: Ludo
  *
- * Created on 19 jul 2018, 20:07
+ * Created on 19 jul. 2018, 20:07
  */
 
-#include <pic12lf1571.h>
 #include "pwm.h"
+
+#include <pic12lf1571.h>
 
 /*** PWM functions ***/
 
-/* CONFIGURE PWM1 PERIPHERAL
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 void PWM1_init(void) {
     // Ensure module is off.
     PWM1CON &= 0x03;
@@ -21,7 +19,7 @@ void PWM1_init(void) {
     PWM1INTE &= 0xF0; // xxIE='0'.
     // No prescaler and input clock = Fosc (LFINTOSC @ 31kHz).
     PWM1CLKCON &= 0x8C; // PS='000' and CS='00'.
-    // Independant run mode.
+    // Independent run mode.
     PWM1OFCON &= 0x9F; // OFM='00'.
     // No phase shift.
     PWM1PH = 0;
@@ -35,28 +33,19 @@ void PWM1_init(void) {
     PWM1CON |= 0x40; // OE='1'.
 }
 
-/* START PWM MODULE (OUTPUT ON RA5 PIN).
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 void PWM1_start(void) {
     // Enable peripheral.
     PWM1CON |= 0x80; // EN='1'.
 }
 
-/* STOP PWM MODULE.
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 void PWM1_stop(void) {
      // Enable peripheral.
     PWM1CON &= 0x7F; // EN='0'.
 }
 
-/* SET PWM FREQUENCY.
- * @param frequency:    PWM frequency in Hz.
- * @return:             None.
- */
+/*******************************************************************/
 void PWM1_set_frequency(unsigned int frequency) {
     // Set PWM frequency.
     unsigned short pr_value = (31000/frequency)-1;

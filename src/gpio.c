@@ -2,18 +2,16 @@
  * File:   gpio.c
  * Author: Ludo
  *
- * Created on 18 jun 2018, 13:09
+ * Created on 18 jun. 2018, 13:09
  */
 
 #include "gpio.h"
+
 #include <pic12lf1571.h>
 
 /*** GPIO functions ***/
 
-/* CONFIGURE GPIOs.
- * @parzm:  None.
- * @return: None.
- */
+/*******************************************************************/
 void GPIO_init(void) {
     // PWM1 peripheral mapped on RA5.
     APFCON = 0x01; // P1SEL='1'.
@@ -30,10 +28,7 @@ void GPIO_init(void) {
     INTCON |= 0x08; // IOCIE='1'.
 }
 
-/* CHECK RAIN SENSOR.
- * @param:                  None.
- * @return sensor_state:    1 if rain detected, 0 otherwise.
- */
+/*******************************************************************/
 unsigned char GPIO_rain_detected(void) {
     unsigned char sensor_state = 0;
     if ((PORTA & 0x10) != 0) { // Check PORTA4 bit.
@@ -42,10 +37,7 @@ unsigned char GPIO_rain_detected(void) {
     return sensor_state;
 }
 
-/* CHECK USER BUTTON.
- * @param:                  None.
- * @return button_state:    1 if button is pressed, 0 otherwise.
- */
+/*******************************************************************/
 unsigned char GPIO_button_pressed(void) {
     unsigned char button_state = 0;
     if ((PORTA & 0x04) != 0) { // Check PORTA2 bit.

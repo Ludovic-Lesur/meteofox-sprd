@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: Ludo
  *
- * Created on 18 jun 2018, 12:28
+ * Created on 18 jun. 2018, 12:28
  */
 
 #include "clock.h"
@@ -26,6 +26,7 @@
 
 /*** MAIN structures ***/
 
+/*******************************************************************/
 typedef enum SPRD_state_t {
     SPRD_STATE_SLEEP,
     SPRD_STATE_TONALITY_1,
@@ -38,10 +39,7 @@ volatile unsigned int tenth_seconds = 0;
 
 /*** MAIN functions ***/
 
-/* MAIN FUNCTION.
- * @param:  None.
- * @return: None.
- */
+/*******************************************************************/
 int main(void) {
     // Local variables.
     SPRD_state_t sprd_state = SPRD_STATE_SLEEP;
@@ -111,10 +109,7 @@ int main(void) {
     return 0;
 }
 
-/* HANDLER FOR ALL INTERRUPTS.
- * @param :     None.
- * @return :    None.
- */
+/*******************************************************************/
 void interrupt ISR(void) {
     // TIMER2 interrupt.
     if ((PIR1 & 0x02) != 0) { // TMR2IF='1'.
