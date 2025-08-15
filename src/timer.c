@@ -7,7 +7,7 @@
 
 #include "timer.h"
 
-#include <pic12lf1571.h>
+#include <xc.h>
 
 /*** TIMER functions ***/
 

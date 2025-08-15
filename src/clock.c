@@ -7,7 +7,7 @@
 
 #include "clock.h"
 
-#include <pic12lf1571.h>
+#include <xc.h>
 
 /*** CLOCK functions ***/
 

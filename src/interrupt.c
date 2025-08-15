@@ -7,7 +7,7 @@
 
 #include "interrupt.h"
 
-#include <pic12lf1571.h>
+#include <xc.h>
 
 /*** INTERRUPT functions ***/
 

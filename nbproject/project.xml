@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>sprd</name>
+            <name>meteofox-sprd</name>
             <creation-uuid>5a5f1de1-858c-4213-9201-1c4d5d884024</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

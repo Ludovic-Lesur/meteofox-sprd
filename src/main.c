@@ -9,7 +9,6 @@
 #include "config.h"
 #include "gpio.h"
 #include "interrupt.h"
-#include <pic12lf1571.h>
 #include "pwm.h"
 #include "timer.h"
 #include <xc.h>
@@ -110,7 +109,7 @@ int main(void) {
 }
 
 /*******************************************************************/
-void interrupt ISR(void) {
+void __interrupt() ISR(void) {
     // TIMER2 interrupt.
     if ((PIR1 & 0x02) != 0) { // TMR2IF='1'.
         // Clear flag.

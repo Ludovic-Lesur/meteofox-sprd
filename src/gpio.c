@@ -7,7 +7,7 @@
 
 #include "gpio.h"
 
-#include <pic12lf1571.h>
+#include <xc.h>
 
 /*** GPIO functions ***/
 

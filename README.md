@@ -19,7 +19,7 @@ The board was designed on **Circuit Maker V1.3**. Below is the list of hardware 
 
 ## Environment
 
-The embedded software was developed under **MPLABX IDE V5.40** and **XC8 V2.20** compiler.
+The embedded software was developed under **MPLABX IDE V6.45** and **XC8 V3.00** compiler.
 
 ## Target
 
