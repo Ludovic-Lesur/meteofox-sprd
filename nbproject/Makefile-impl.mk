@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=sprd
+PROJECTNAME=meteofox-sprd
 
 # Active Configuration
 DEFAULTCONF=default

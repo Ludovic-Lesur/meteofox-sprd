@@ -6,5 +6,5 @@
 CND_BASEDIR=`pwd`
 # default configuration
 CND_ARTIFACT_DIR_default=dist/default/production
-CND_ARTIFACT_NAME_default=sprd.production.hex
-CND_ARTIFACT_PATH_default=dist/default/production/sprd.production.hex
+CND_ARTIFACT_NAME_default=meteofox-sprd.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/meteofox-sprd.production.hex
